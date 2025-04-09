@@ -17,6 +17,8 @@ import pizzaImg from '../assets/pizza.jpeg';
 import burgurImg from '../assets/burgur.jpeg';
 import hotdogImg from '../assets/hotdog.jpeg';
 import spaghettiImg from '../assets/spaghetti.jpg';
+import chickenImg from '../assets/Drumsticks.jpg';
+import cheesecakeImg from '../assets/cheesecake.jpg';
 import Grid from '@mui/material/Grid';
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -100,21 +102,44 @@ export default function RecipeReviewCard() {
                 'Serve hot with grated cheese.',
             ],
         },
+        {
+            title: 'Spaghetti',
+            image: chickenImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
+        {
+            title: 'Spaghetti',
+            image: cheesecakeImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
     ];
 
-    const [expanded, setExpanded] = React.useState(false);
+    const [expandedCardIndex, setExpandedCardIndex] = React.useState<number | null>(null);
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
+    const handleExpandClick = (index: number) => {
+        setExpandedCardIndex((prev) => (prev === index ? null : index));
     };
+
 
     return (
         <>
+            <h2>WELCOME TO RECIPE FINDER!!</h2>
 
             <Grid container spacing={2}>
-
             {recipes.map((recipe, index) => (
-                <Card key={index} sx={{ width: 300, height: 400, display: 'flex', flexDirection: 'column'}}>
+                <Card key={index} sx={{ width: 300,  display: 'flex', flexDirection: 'column'}}>
                     <CardHeader
                         action={
                             <IconButton aria-label="settings">
@@ -142,15 +167,15 @@ export default function RecipeReviewCard() {
                             <ShareIcon />
                         </IconButton>
                         <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
+                            expand={expandedCardIndex === index}
+                            onClick={() => handleExpandClick(index)}
+                            aria-expanded={expandedCardIndex === index}
                             aria-label="show more"
                         >
                             <ExpandMoreIcon />
                         </ExpandMore>
                     </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <Collapse in={expandedCardIndex === index} timeout="auto" unmountOnExit>
                         <CardContent>
                             <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
                             {recipe.methodSteps.map((step, stepIndex) => (
