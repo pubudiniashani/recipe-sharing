@@ -137,6 +137,8 @@ export default function RecipeReviewCard() {
         <>
             <h2>WELCOME TO RECIPE FINDER!!</h2>
 
+
+
             <Grid container spacing={2}>
             {recipes.map((recipe, index) => (
                 <Card key={index} sx={{ width: 300,  display: 'flex', flexDirection: 'column'}}>
