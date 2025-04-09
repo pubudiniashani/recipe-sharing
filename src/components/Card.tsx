@@ -19,6 +19,7 @@ import hotdogImg from '../assets/hotdog.jpeg';
 import spaghettiImg from '../assets/spaghetti.jpg';
 import chickenImg from '../assets/Drumsticks.jpg';
 import cheesecakeImg from '../assets/cheesecake.jpg';
+import friesImg from '../assets/frenchfries.jpg';
 import Grid from '@mui/material/Grid';
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -92,7 +93,7 @@ export default function RecipeReviewCard() {
             ],
         },
         {
-            title: 'Spaghetti',
+            title: 'Hotdog bun',
             image: hotdogImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
             methodSteps: [
@@ -103,7 +104,7 @@ export default function RecipeReviewCard() {
             ],
         },
         {
-            title: 'Spaghetti',
+            title: 'Fried Chicken',
             image: chickenImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
             methodSteps: [
@@ -114,8 +115,19 @@ export default function RecipeReviewCard() {
             ],
         },
         {
-            title: 'Spaghetti',
+            title: 'Cheesecake',
             image: cheesecakeImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
+        {
+            title: 'French Fries',
+            image: friesImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
             methodSteps: [
                 'Boil pasta until al dente.',
@@ -135,13 +147,9 @@ export default function RecipeReviewCard() {
 
     return (
         <>
-            <h2>WELCOME TO RECIPE FINDER!!</h2>
-
-
-
-            <Grid container spacing={2}>
+            <Grid container spacing={2} justifyContent="center">
             {recipes.map((recipe, index) => (
-                <Card key={index} sx={{ width: 300,  display: 'flex', flexDirection: 'column'}}>
+                <Card key={index} sx={{ width: 250,  display: 'flex', flexDirection: 'column'}}>
                     <CardHeader
                         action={
                             <IconButton aria-label="settings">
@@ -162,7 +170,7 @@ export default function RecipeReviewCard() {
                         </Typography>
                     </CardContent>
                     <CardActions disableSpacing>
-                        <IconButton aria-label="add to favorites">
+                        <IconButton aria-label="add to favorites ">
                             <FavoriteIcon />
                         </IconButton>
                         <IconButton aria-label="share">

@@ -1,6 +1,7 @@
 
 import './App.css'
-import RecipeReviewCard from "./components/Card.tsx";
+import Home from './pages/Home'; // Adjust path if needed
+
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <>
-      <RecipeReviewCard />
+      <Home />
     </>
   )
 }
