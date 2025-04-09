@@ -6,15 +6,18 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
-
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import pastaImg from '../assets/pasta.jpeg';
+import pizzaImg from '../assets/pizza.jpeg';
+import burgurImg from '../assets/burgur.jpeg';
+import hotdogImg from '../assets/hotdog.jpeg';
+import spaghettiImg from '../assets/spaghetti.jpg';
+import Grid from '@mui/material/Grid';
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -23,45 +26,28 @@ interface ExpandMoreProps extends IconButtonProps {
 const ExpandMore = styled((props: ExpandMoreProps) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
-})(({ theme }) => ({
+})(({ theme, expand }) => ({
     marginLeft: 'auto',
+    transform: expand ? 'rotate(180deg)' : 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
-    variants: [
-        {
-            props: ({ expand }) => !expand,
-            style: {
-                transform: 'rotate(0deg)',
-            },
-        },
-        {
-            props: ({ expand }) => !!expand,
-            style: {
-                transform: 'rotate(180deg)',
-            },
-        },
-    ],
 }));
 
-type RecipeCardProps = {
-    title: string;
-    image: string;
-    description: string;
-    methodSteps: string[];
-};
 
-export default function RecipeReviewCard(props: RecipeCardProps) {
-    const [expanded, setExpanded] = React.useState(false);
+// type RecipeCardProps = {
+//     title: string;
+//     image: string;
+//     description: string;
+//     methodSteps: string[];
+// };
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
 
+export default function RecipeReviewCard() {
     const recipes = [
         {
-            title: 'Shrimp and Chorizo Paella',
-            image: '/static/images/cards/paella.jpg',
+            title: 'Shrimp pasta',
+            image: pastaImg,
             description: 'A perfect party dish with shrimp and chorizo.',
             methodSteps: [
                 'Heat 1/2 cup of the broth...',
@@ -70,64 +56,115 @@ export default function RecipeReviewCard(props: RecipeCardProps) {
                 'Set aside off the heat and serve.',
             ],
         },
-    ]
+        {
+            title: 'Margherita pizza',
+            image: pizzaImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
+        {
+            title: 'Chicken burgur',
+            image: burgurImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
+        {
+            title: 'Spaghetti',
+            image: spaghettiImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
+        {
+            title: 'Spaghetti',
+            image: hotdogImg,
+            description: 'Creamy and garlicky pasta for pasta lovers.',
+            methodSteps: [
+                'Boil pasta until al dente.',
+                'Sauté garlic in butter.',
+                'Add cream and mix well.',
+                'Serve hot with grated cheese.',
+            ],
+        },
+    ];
+
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardHeader
+        <>
 
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title={props.title}
-                // title="Shrimp and Chorizo Paella"
-                // subheader="September 14, 2016"
-            />
-            <CardMedia
-                component="img"
-                height="194"
-                // image={pastaImg}
-                image={props.image}
-                alt="Paella dish"
-            />
+            <Grid container spacing={2}>
 
-            <CardContent>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {/*This impressive paella is a perfect party dish and a fun meal to cook*/}
-                    {/*together with your guests. Add 1 cup of frozen peas along with the mussels,*/}
-                    {/*if you like.*/}
-                    {props.description}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                    <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
-                    {props.methodSteps.map((step, index) => (
-                        <Typography key={index} sx={{ marginBottom: 1 }}>
-                            {index + 1}. {step}
+            {recipes.map((recipe, index) => (
+                <Card key={index} sx={{ width: 300, height: 400, display: 'flex', flexDirection: 'column'}}>
+                    <CardHeader
+                        action={
+                            <IconButton aria-label="settings">
+                                <MoreVertIcon />
+                            </IconButton>
+                        }
+                        title={recipe.title}
+                    />
+                    <CardMedia
+                        component="img"
+                        height="194"
+                        image={recipe.image}
+                        alt={recipe.title}
+                    />
+                    <CardContent>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            {recipe.description}
                         </Typography>
-                    ))}
-                </CardContent>
-            </Collapse>
+                    </CardContent>
+                    <CardActions disableSpacing>
+                        <IconButton aria-label="add to favorites">
+                            <FavoriteIcon />
+                        </IconButton>
+                        <IconButton aria-label="share">
+                            <ShareIcon />
+                        </IconButton>
+                        <ExpandMore
+                            expand={expanded}
+                            onClick={handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                        >
+                            <ExpandMoreIcon />
+                        </ExpandMore>
+                    </CardActions>
+                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                        <CardContent>
+                            <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
+                            {recipe.methodSteps.map((step, stepIndex) => (
+                                <Typography key={stepIndex} sx={{ marginBottom: 1 }}>
+                                    {stepIndex + 1}. {step}
+                                </Typography>
+                            ))}
+                        </CardContent>
+                    </Collapse>
+                </Card>
+            ))}
+            </Grid>
 
-        </Card>
+        </>
     );
 }
+
