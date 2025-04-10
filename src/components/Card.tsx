@@ -1,12 +1,9 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
@@ -86,7 +83,10 @@ export default function RecipeReviewCard() {
                     key={index}
                     sx={{ display: 'flex', justifyContent: 'center' }}
                 >
-                    <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
+                    <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' ,
+                        border: '2px solid #311b92',
+                        borderRadius: 2,
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
                         <CardHeader
                             action={
                                 <IconButton aria-label="settings">
