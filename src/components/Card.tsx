@@ -27,94 +27,55 @@ export default function RecipeReviewCard() {
         {
             title: 'Shrimp pasta',
             image: pastaImg,
-            description: 'A perfect party dish with shrimp and chorizo.',
-            methodSteps: [
-                'Heat 1/2 cup of the broth...',
-                'Heat oil in a paella pan...',
-                'Add rice and stir gently...',
-                'Set aside off the heat and serve.',
-            ],
+            description: 'A popular Italian pasta dish with a variety of sauces, from rich tomato-based  ' +
+                'flavour and meat sauces to creamy cheese flavour.',
+
         },
         {
             title: 'Margherita pizza',
             image: pizzaImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+            description: 'Margherita pizza is a classic Italian pizza topped with fresh tomatoes, mozzarella cheese, and basil,',
+
         },
         {
-            title: 'Chicken burgur',
+            title: 'Chicken burger',
             image: burgurImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+            description: 'CA chicken burger is a delicious sandwich featuring a seasoned chicken patty in a bun with toppings like lettuce, tomato, cheese, and sauces for a satisfying bite.',
+
         },
         {
             title: 'Spaghetti',
             image: spaghettiImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+
         },
         {
             title: 'Hotdog bun',
             image: hotdogImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+
         },
         {
             title: 'Fried Chicken',
             image: chickenImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+
         },
         {
             title: 'Cheesecake',
             image: cheesecakeImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+
         },
         {
             title: 'French Fries',
             image: friesImg,
             description: 'Creamy and garlicky pasta for pasta lovers.',
-            methodSteps: [
-                'Boil pasta until al dente.',
-                'Sauté garlic in butter.',
-                'Add cream and mix well.',
-                'Serve hot with grated cheese.',
-            ],
+
         },
     ];
 
-    const [expandedCardIndex, setExpandedCardIndex] = React.useState<number | null>(null);
+
 
 
 
@@ -158,20 +119,20 @@ export default function RecipeReviewCard() {
                             </IconButton>
 
                         </CardActions>
-                        <Collapse
-                            in={expandedCardIndex === index}
-                            timeout="auto"
-                            unmountOnExit
-                        >
-                            <CardContent>
-                                <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
-                                {recipe.methodSteps.map((step, stepIndex) => (
-                                    <Typography key={stepIndex} sx={{ marginBottom: 1 }}>
-                                        {stepIndex + 1}. {step}
-                                    </Typography>
-                                ))}
-                            </CardContent>
-                        </Collapse>
+                        {/*<Collapse*/}
+                        {/*    in={expandedCardIndex === index}*/}
+                        {/*    timeout="auto"*/}
+                        {/*    unmountOnExit*/}
+                        {/*>*/}
+                        {/*    <CardContent>*/}
+                        {/*        <Typography sx={{ marginBottom: 2 }}>Method:</Typography>*/}
+                        {/*        {recipe.methodSteps.map((step, stepIndex) => (*/}
+                        {/*            <Typography key={stepIndex} sx={{ marginBottom: 1 }}>*/}
+                        {/*                {stepIndex + 1}. {step}*/}
+                        {/*            </Typography>*/}
+                        {/*        ))}*/}
+                        {/*    </CardContent>*/}
+                        {/*</Collapse>*/}
                     </Card>
                 </Grid>
             ))}
