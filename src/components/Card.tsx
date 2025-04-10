@@ -46,38 +46,34 @@ export default function RecipeReviewCard() {
         {
             title: 'Spaghetti',
             image: spaghettiImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
+            description: 'Spaghetti is Italian cuisine, often served with a variety of sauces like marinara, Bolognese, or carbonara for a hearty and flavorful meal.',
 
         },
         {
             title: 'Hotdog bun',
             image: hotdogImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
+            description: 'A hotdog is a popular fast food item consisting of a sausage, served in a sliced bun and often topped with condiments like mustard, ketchup, onions, relish, or cheese.',
 
         },
         {
             title: 'Fried Chicken',
             image: chickenImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
+            description: 'Fried chicken is a crispy and flavorful dish made by seasoning chicken pieces, coating them in flour or batter, and deep-frying them until golden brown',
 
         },
         {
             title: 'Cheesecake',
             image: cheesecakeImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
+            description: 'Cheesecake is a rich and creamy dessert made with a smooth mixture of cream cheese, sugar, and eggs on a buttery crust',
 
         },
         {
             title: 'French Fries',
             image: friesImg,
-            description: 'Creamy and garlicky pasta for pasta lovers.',
+            description: 'French fries are thinly sliced potatoes that are deep-fried until golden and crispy, often served salted and enjoyed as a snack or side dish with ketchup, mayo, or other dips.',
 
         },
     ];
-
-
-
-
 
     return (
         <Grid container spacing={2} justifyContent="center">
