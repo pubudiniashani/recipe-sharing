@@ -1,148 +1,55 @@
-import {
-    Box,
-    Typography,
-    TextField,
-    Button,
-    Stack,
-    Divider,
-    useTheme,
-    Paper,
-    Link,
-} from "@mui/material";
+import React, { useState } from 'react';
+import { Button, TextField, Container, Typography, Box, Paper } from '@mui/material';
+import backgroundImage from "../assets/spaghetti.jpg";
 
-import GoogleIcon from "@mui/icons-material/Google";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import { useNavigate } from "react-router-dom";
+const LoginForm = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-const Login = () => {
+    const handleSubmit = (e: React.FormEvent) => {
 
-    const navigate = useNavigate();
+        console.log('Email:', email, 'Password:', password);
+    };
 
     return (
-        <>
-
-            <Box
-                sx={{
-                    minHeight: "100vh",
-                    backgroundImage: `url(')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    p: 2,
-                }}
-            >
-                <Paper
-                    elevation={6}
-                    sx={{
-                        maxWidth: 400,
-                        width: "100%",
-                        p: 4,
-                        borderRadius: 4,
-                        backgroundColor: mode === "dark" ? "#1e1e1e" : "#fff",
-                    }}
-                >
-                    <Typography
-                        variant="h4"
-                        fontWeight="bold"
-                        align="center"
-                        gutterBottom
-                        sx={{ color: mode === "dark" ? "#f06292" : "#d81b60" }}
-                    >
-                        Welcome Back
-                    </Typography>
-
-                    <Stack spacing={2} component="form">
+        <Container component="main"
+                   maxWidth="xs" sx={{  backgroundImage: `url(${backgroundImage}`, backgroundSize: 'cover', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Paper elevation={3} sx={{ padding: 3 ,  width: 300,
+                    height: 300, }}>
+                <Typography variant="h5" align="center" gutterBottom>
+                    Login
+                </Typography>
+                <form onSubmit={handleSubmit} >
+                    <Box mb={2}>
                         <TextField
+                            fullWidth
                             label="Email"
-                            name="email"
-                            type="email"
-                            fullWidth
-                            required
+                            variant="outlined"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+
                         />
+                    </Box>
+                    <Box mb={3}>
                         <TextField
+                            fullWidth
                             label="Password"
-                            name="password"
                             type="password"
-                            fullWidth
-                            required
+                            variant="outlined"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+
                         />
-
-                        <Link
-                            href="#"
-                            underline="hover"
-                            sx={{
-                                fontSize: "0.875rem",
-                                color: mode === "dark" ? "#f06292" : "#d81b60",
-                                textAlign: "right",
-                            }}
-                        >
-                            Forgot Password?
-                        </Link>
-
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            fullWidth
-                            onClick={() => navigate("/home")}
-                            sx={{
-                                backgroundColor: mode === "dark" ? "#f06292" : "#d81b60",
-                                color: "#fff",
-                                textTransform: "none",
-                                borderRadius: "20px",
-                                fontWeight: "bold",
-                                "&:hover": {
-                                    backgroundColor: mode === "dark" ? "#ec407a" : "#c2185b",
-                                },
-                            }}
-                        >
-                            Login
+                    </Box>
+                    <Box display="flex" justifyContent="center" >
+                        <Button variant="contained" color="primary" type="submit" fullWidth>
+                            Log In
                         </Button>
-                    </Stack>
-
-                    <Divider sx={{ my: 3, color: "gray" }}>or login with</Divider>
-
-                    <Stack spacing={2}>
-                        <Button
-                            variant="outlined"
-                            fullWidth
-                            startIcon={<GoogleIcon />}
-                            sx={{
-                                textTransform: "none",
-                                borderColor: "#f06292",
-                                color: mode === "dark" ? "#f06292" : "#d81b60",
-                            }}
-                        >
-                            Login with Google
-                        </Button>
-                        <Button
-                            variant="outlined"
-                            fullWidth
-                            startIcon={<FacebookIcon />}
-                            sx={{
-                                textTransform: "none",
-                                borderColor: "#f06292",
-                                color: mode === "dark" ? "#f06292" : "#d81b60",
-                            }}
-                        >
-                            Login with Facebook
-                        </Button>
-                    </Stack>
-
-                    <Typography
-                        variant="body2"
-                        align="center"
-                        sx={{ mt: 3, color: mode === "dark" ? "#aaa" : "#666" }}
-                    >
-                        Don't have an account?{" "}
-                        <span style={{ color: "#f06292", cursor: "pointer" }}>Sign Up</span>
-                    </Typography>
-                </Paper>
-            </Box>
-        </>
+                    </Box>
+                </form>
+            </Paper>
+        </Container>
     );
 };
 
-export default Login;
-
+export default LoginForm;
