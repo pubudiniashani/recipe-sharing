@@ -4,18 +4,22 @@ import { TextField, Button, Grid, Container, Typography } from '@mui/material';
 
 const SignUp = () => {
     return (
-        <Container maxWidth="xs" style={{ padding: '20px' }}>
+
+        <Container maxWidth="xs" style={{ padding: '20px' ,
+            border: '1px solid #ccc',
+            borderRadius: '8px' }}>
             <Grid container spacing={2} direction="column" alignItems="center">
 
                 <Grid item>
-                    <img src="/food.jpg" alt="Signup" style={{ width: '100%', maxWidth: '200px' }} />
+                    <img src="/food.jpg" alt="Signup"
+                         style={{ width: '100%', maxWidth: '200px' }} />
                 </Grid>
-
 
                 <Grid item>
                     <Typography variant="h5" align="center" gutterBottom>
                         Create an Account
                     </Typography>
+
                     <form noValidate autoComplete="off">
                         <TextField
                             label="Full Name"
@@ -46,6 +50,7 @@ const SignUp = () => {
                             Sign Up
                         </Button>
                     </form>
+
                 </Grid>
             </Grid>
         </Container>
