@@ -12,7 +12,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import pastaImg from '../assets/pasta.jpeg';
+import pastaImg from '../assets/penne-pasta.jpg';
 import pizzaImg from '../assets/pizza.jpeg';
 import burgurImg from '../assets/burgur.jpeg';
 import hotdogImg from '../assets/hotdog.jpeg';
