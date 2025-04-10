@@ -6,8 +6,9 @@ const SignUp = () => {
     return (
 
         <Container maxWidth="xs" style={{ padding: '20px' ,
-            border: '1px solid #ccc',
-            borderRadius: '8px' }}>
+            border: '1px solid #4a148c',
+            borderRadius: '18px' ,
+            backgroundColor: "#f3e5f5",}}>
             <Grid container spacing={2} direction="column" alignItems="center">
 
                 <Grid item>

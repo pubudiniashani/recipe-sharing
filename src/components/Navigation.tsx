@@ -34,7 +34,7 @@ export default function Navbar() {
 
     return (
         <Box sx={{ width: '100%', overflow: 'hidden'  }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider', backgroundColor: 'red' }}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider', width : '100vw' , backgroundColor : "#7e57c2"}}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
