@@ -25,7 +25,6 @@ function CustomTabPanel(props: TabPanelProps) {
     );
 }
 
-
 export default function Navbar() {
     const [value, setValue] = React.useState(0);
 
@@ -34,7 +33,7 @@ export default function Navbar() {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', overflow: 'hidden'  }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', backgroundColor: 'red' }}>
                 <Tabs
                     value={value}
@@ -42,10 +41,13 @@ export default function Navbar() {
                     aria-label="simple tabs example"
                     textColor="inherit"
 
+
                     sx={{
                         '& .MuiTabs-flexContainer': {
                             justifyContent: 'center',
+                            color: 'white'
                         },
+
                     }}
                 >
                     <Tab label="Feed" />
